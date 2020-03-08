@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { RsFormBuilder } from '../formBuilder/rs-form-builder';
-import { get } from 'http';
 import { Router } from '@angular/router';
 import { UserService, NotificationService } from '../services';
-import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rs-add-restaurant',

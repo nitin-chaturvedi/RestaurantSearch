@@ -1,0 +1,45 @@
+<rs-searchbar (searchClicked)="search($event)"></rs-searchbar>
+<div class="top-search">
+    View ::
+    <mat-button-toggle-group name="displayStyle" (change)="displayStyleChanged($event)">
+        <mat-button-toggle value="list">List</mat-button-toggle>
+        <mat-button-toggle value="tile">Tile</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+
+<div *ngIf="restaurantList.filteredData?.length>0" style=" padding: 20px;" class="mat-elevation-z8">
+    <table mat-table [dataSource]="restaurantList" class="mat-elevation-z8"
+    style="width: 80%;">
+
+        <ng-container matColumnDef="restaurantCode">
+            <th mat-header-cell *matHeaderCellDef> Restaurant Code </th>
+            <td mat-cell *matCellDef="let element"> {{element.restaurantCode}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef> City </th>
+            <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="country">
+            <th mat-header-cell *matHeaderCellDef> Country </th>
+            <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+<div style="width: 80%;">
+  <mat-paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>    
+</div>

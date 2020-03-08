@@ -1,0 +1,59 @@
+<mat-card id="card" style="text-align: center;">
+
+    <mat-card-title>Add Restaurant</mat-card-title>
+
+    <mat-card-content>
+        <form [formGroup]="restaurantForm" >
+            <mat-form-field >
+                <input matInput placeholder="restaurantCode" formControlName="restaurantCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.restaurantCode.errors }"
+                    required>
+            </mat-form-field>
+            <mat-error *ngIf="f.restaurantCode.errors && (f.restaurantCode.touched || f.restaurantCode.dirty)">
+                <span *ngIf="f.restaurantCode.errors.required && (f.restaurantCode.touched || f.restaurantCode.dirty)">restaurantCode is
+                    required !!!</span>
+            </mat-error>
+            <br>
+            <mat-form-field >
+                <input matInput placeholder="name" formControlName="name" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required>
+            </mat-form-field>
+            <mat-error *ngIf="f.name.errors && (f.name.touched || f.name.dirty)">
+                <span *ngIf="f.name.errors.required">name is required !!!</span>
+            </mat-error>
+            <br>
+            <mat-form-field >
+                <input matInput placeholder="city" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
+                    required>
+            </mat-form-field>
+            <mat-error *ngIf="f.city.errors && (f.city.touched || f.city.dirty)">
+                <span *ngIf="f.city.errors.required && (f.city.touched || f.city.dirty)">city is
+                    required !!!</span>
+            </mat-error>
+            <br>
+            <mat-form-field >
+                <input matInput placeholder="country" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }"
+                    required>
+            </mat-form-field>
+            <mat-error *ngIf="f.country.errors && (f.country.touched || f.country.dirty)">
+                <span *ngIf="f.country.errors.required && (f.country.touched || f.country.dirty)">country is
+                    required !!!</span>
+            </mat-error>
+            <br>
+            <mat-form-field >
+                <input matInput placeholder="description" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+                    required>
+            </mat-form-field>
+            <mat-error *ngIf="f.description.errors && (f.description.touched || f.description.dirty)">
+                <span *ngIf="f.description.errors.required && (f.description.touched || f.description.dirty)">description is
+                    required !!!</span>
+            </mat-error>
+
+        </form>
+        <div align="center">
+        <mat-spinner matSuffix *ngIf="loading" mode="indeterminate" diameter="17"></mat-spinner>
+    </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="add()" color="primary" [disabled]="loading || restaurantForm.invalid">Add Restaurant</button>
+    </mat-card-actions>
+</mat-card>

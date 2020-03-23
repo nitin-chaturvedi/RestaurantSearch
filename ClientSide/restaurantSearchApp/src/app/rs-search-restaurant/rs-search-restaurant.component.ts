@@ -11,7 +11,7 @@ import { Restaurant } from '../models/restaurant';
 })
 export class RsSearchRestaurantComponent implements OnInit {
 
- @ViewChild(MatPaginator, {static: false}) set MatPaginator(paginator: MatPaginator) {
+ @ViewChild(MatPaginator) set MatPaginator(paginator: MatPaginator) {
     this.restaurantList.paginator=paginator;
  }
 
